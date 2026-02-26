@@ -30,8 +30,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="bg-white">
-      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased theme-home selection:bg-primary selection:text-primary-foreground`}>
+    <html lang="en" className="bg-white" suppressHydrationWarning>
+      <body suppressHydrationWarning className={`${inter.variable} ${playfair.variable} font-sans antialiased theme-home selection:bg-primary selection:text-primary-foreground`}>
         {children}
         <Analytics />
       </body>
