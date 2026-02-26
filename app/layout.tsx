@@ -2,7 +2,6 @@ import type React from "react"
 import type { Metadata, Viewport } from "next"
 import { Inter, Playfair_Display } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
-import { CustomCursor } from "@/components/custom-cursor" // Ensure this path is correct
 import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
@@ -31,11 +30,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="bg-background">
-      {/* cursor-none here is a safety fallback */}
+    <html lang="en" className="bg-white">
       <body className={`${inter.variable} ${playfair.variable} font-sans antialiased theme-home selection:bg-primary selection:text-primary-foreground`}>
-        {/* The Custom Cursor sits outside {children} so it's always on top */}
-        <CustomCursor />
         {children}
         <Analytics />
       </body>

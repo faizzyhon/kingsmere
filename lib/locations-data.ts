@@ -53,7 +53,7 @@ export const locations: Location[] = [
     ],
     image: "/location-london-homes.jpg",
     metaDescription:
-      "Professional garage door and awning installation across all London boroughs. Free surveys, expert fitting, 10-year warranty. Call Kingsmere today.",
+      "Professional garage door and awning installation across all London boroughs. Free surveys, expert fitting, 5-year warranty. Call Kingsmere today.",
   },
   {
     id: "birmingham",
@@ -81,7 +81,7 @@ export const locations: Location[] = [
     ],
     image: "/location-birmingham-homes.jpg",
     metaDescription:
-      "Expert garage doors and awnings in Birmingham. Family-run business with 10-year warranty. Serving all West Midlands areas. Free quotes available.",
+      "Expert garage doors and awnings in Birmingham. Family-run business with 5-year warranty. Serving all West Midlands areas. Free quotes available.",
   },
   {
     id: "manchester",
@@ -109,7 +109,7 @@ export const locations: Location[] = [
     ],
     image: "/location-manchester-homes.jpg",
     metaDescription:
-      "Manchester garage door specialists. Electric roller, sectional & side-hinged doors. Professional awning installation. Free home surveys.",
+      "Manchester garage door specialists. Electric roller doors. Professional awning installation. Free home surveys.",
   },
   {
     id: "bristol",
@@ -137,7 +137,7 @@ export const locations: Location[] = [
     ],
     image: "/location-bristol-homes.jpg",
     metaDescription:
-      "Bristol's trusted garage door company. Roller, sectional & traditional doors. Electric awnings for patios. 10-year warranty included.",
+      "Bristol's trusted garage door company. Roller doors and electric awnings for patios. 5-year warranty included.",
   },
   {
     id: "leeds",

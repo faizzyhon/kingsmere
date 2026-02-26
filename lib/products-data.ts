@@ -25,68 +25,13 @@ export const garageDoors: Product[] = [
       "Insulated aluminium slats",
       "Remote control & smart home ready",
       "Available in 20+ colours",
-      "10-year warranty included",
+      "5-year warranty included",
     ],
     image: "/roller-garage-door-closeup-modern-home.jpg",
     priceFrom: "£1,499",
   },
-  {
-    id: "sectional-1",
-    name: "Sectional Garage Doors",
-    slug: "sectional",
-    category: "garage-doors",
-    shortDescription: "Premium insulation with smooth horizontal panels",
-    description:
-      "Sectional garage doors offer the ultimate in thermal efficiency and contemporary style. Made from double-skinned steel panels with foam insulation, they provide exceptional heat retention for those using their garage as a workshop or gym. The overhead track system ensures smooth, reliable operation.",
-    features: [
-      "Double-skinned insulated panels",
-      "Superior thermal efficiency",
-      "Overhead track system",
-      "Multiple panel designs available",
-      "Wicket door option",
-      "10-year warranty included",
-    ],
-    image: "/sectional-garage-door-white-modern-home.jpg",
-    priceFrom: "£1,899",
-  },
-  {
-    id: "side-hinged-1",
-    name: "Side-Hinged Garage Doors",
-    slug: "side-hinged",
-    category: "garage-doors",
-    shortDescription: "Traditional style with modern convenience",
-    description:
-      "Side-hinged garage doors combine classic aesthetics with modern functionality. Perfect for period properties or those who prefer easy pedestrian access without opening the full door. Available with electric automation for effortless operation.",
-    features: [
-      "Traditional swing-open design",
-      "Easy pedestrian access",
-      "Electric automation available",
-      "Wide range of styles & finishes",
-      "Ideal for period properties",
-      "10-year warranty included",
-    ],
-    image: "/side-hinged-garage-door-traditional-home.jpg",
-    priceFrom: "£1,299",
-  },
-  {
-    id: "up-and-over-1",
-    name: "Up & Over Garage Doors",
-    slug: "up-and-over",
-    category: "garage-doors",
-    shortDescription: "Classic reliability with proven performance",
-    description:
-      "The timeless up & over garage door remains a popular choice for UK homeowners. Our range features both canopy and retractable mechanisms, with options for manual or electric operation. Robust, reliable, and available in countless styles.",
-    features: [
-      "Canopy or retractable mechanism",
-      "Manual or electric operation",
-      "Steel, timber or GRP options",
-      "Hundreds of designs available",
-      "Budget-friendly options",
-      "10-year warranty included",
-    ],
-    image: "/up-and-over-garage-door-classic-home.jpg",
-    priceFrom: "£899",
-  },
+
+
 ]
 
 export const awnings: Product[] = [

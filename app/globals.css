@@ -6,20 +6,20 @@
 /* --- DYNAMIC BRAND THEMES --- */
 :root {
   --radius: 0.5rem;
-  --background: oklch(0.97 0.02 145);
+  --background: #ffffff;
   --foreground: oklch(0.25 0.04 210);
 }
 
-/* THEME 1: "The Odyssey" (Home) */
+/* THEME 1: "The Odyssey" (Home) – Clean white background */
 .theme-home {
-  --background: oklch(0.98 0.01 140);
-  --background-alt: oklch(0.92 0.04 140);
+  --background: #ffffff;
+  --background-alt: oklch(0.96 0.01 210);
   --foreground: oklch(0.25 0.04 210);
   --primary: oklch(0.35 0.05 210);
   --primary-foreground: #ffffff;
   --secondary: oklch(0.88 0.12 90);
   --secondary-foreground: oklch(0.25 0.04 210);
-  --muted: oklch(0.92 0.04 140);
+  --muted: oklch(0.96 0.01 210);
   --muted-foreground: oklch(0.45 0.05 210);
   --accent: oklch(0.55 0.12 110);
   --accent-foreground: #ffffff;
@@ -102,18 +102,7 @@
     @apply border-border outline-ring/50; 
   }
 
-  /* GLOBAL CURSOR LOCK:
-     This hides the system cursor for EVERY element on desktop.
-     The use of !important ensures that no button or link 
-     accidentally shows the 'pointer' arrow.
-  */
-  @media (pointer: fine) {
-    html, body, *, a, button, input, select, textarea {
-      cursor: none !important;
-    }
-  }
-
   body { 
-    @apply bg-background text-foreground transition-colors duration-700 ease-in-out antialiased; 
+    @apply bg-background text-foreground antialiased; 
   }
 }

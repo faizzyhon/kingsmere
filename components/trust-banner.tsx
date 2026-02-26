@@ -4,7 +4,7 @@ import { Shield, Award, Star, CheckCircle, Truck, Clock } from "lucide-react"
 import { Marquee } from "@/components/marquee"
 
 const trustItems = [
-  { icon: Shield, text: "10 Year Warranty" },
+  { icon: Shield, text: "5 Year Warranty" },
   { icon: Award, text: "Made in the UK" },
   { icon: Star, text: "4.9/5 Trustpilot" },
   { icon: CheckCircle, text: "2,500+ Installations" },

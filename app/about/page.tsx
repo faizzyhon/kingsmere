@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const stats = [
   { value: "2016", label: "Established" },
   { value: "2,500+", label: "Happy Customers" },
-  { value: "10", label: "Year Warranty" },
+  { value: "5", label: "Year Warranty" },
   { value: "4.9", label: "Trustpilot Rating" },
 ]
 
@@ -48,28 +48,7 @@ const values = [
   },
 ]
 
-const timeline = [
-  {
-    year: "2016",
-    title: "The Beginning",
-    description: "Founded by the Thompson family with a passion for quality home improvements and customer service.",
-  },
-  {
-    year: "2018",
-    title: "Expanding Services",
-    description: "Added electric awnings to our product range, responding to growing customer demand.",
-  },
-  {
-    year: "2020",
-    title: "National Coverage",
-    description: "Expanded our installation network to serve customers across the entire UK.",
-  },
-  {
-    year: "2024",
-    title: "2,500+ Installations",
-    description: "Reached a milestone of over 2,500 successful installations with a 4.9-star rating.",
-  },
-]
+
 
 export default function AboutPage() {
   return (
@@ -154,32 +133,6 @@ export default function AboutPage() {
                   </CardContent>
                 </Card>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Timeline Section */}
-        <section className="py-12 lg:py-20 bg-background">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="relative">
-              <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-secondary/30 md:left-1/2 md:-translate-x-0.5" />
-              <div className="space-y-12">
-                {timeline.map((item, index) => (
-                  <div
-                    key={item.year}
-                    className={`relative flex items-start gap-6 md:gap-0 ${index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
-                  >
-                    <div className="absolute left-4 top-2 h-3 w-3 rounded-full bg-primary md:left-1/2 md:-translate-x-1.5" />
-                    <div className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
-                      <span className="inline-block rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground mb-2">
-                        {item.year}
-                      </span>
-                      <h3 className="text-lg font-semibold text-foreground">{item.title}</h3>
-                      <p className="mt-1 text-muted-foreground text-sm">{item.description}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </section>

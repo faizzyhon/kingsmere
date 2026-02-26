@@ -1,31 +1,22 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { Menu, X, ChevronDown, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { cn } from "@/lib/utils"
-// Import the Logo component you just created
 import { Logo } from "@/components/logo"
 
-const navigation = {
-  doors: [
-    { name: "Roller Garage Doors", href: "/garage-doors/roller" },
-    { name: "Sectional Garage Doors", href: "/garage-doors/sectional" },
-    { name: "Side-Hinged Doors", href: "/garage-doors/side-hinged" },
-    { name: "Up & Over Doors", href: "/garage-doors/up-and-over" },
-  ],
-  awnings: [
-    { name: "Retractable Awnings", href: "/awnings/retractable" },
-    { name: "Patio Awnings", href: "/awnings/patio" },
-    { name: "Commercial Awnings", href: "/awnings/commercial" },
-  ],
-}
+const productsMenu = [
+  { name: "Roller Garage Doors", href: "/garage-doors/roller" },
+  { name: "Awnings", href: "/awnings" },
+]
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [productsOpen, setProductsOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,77 +26,72 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setProductsOpen(false)
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [])
+
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        // Adjusted opacity for better logo visibility
         isScrolled ? "bg-primary shadow-lg" : "bg-primary/95",
       )}
     >
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between lg:h-20">
-          
+
           {/* Logo Section */}
           <Link href="/" className="flex items-center gap-2 group transition-transform duration-300 active:scale-95">
-            {/* We pass a text-primary-foreground class to ensure 
-               the SVG and Text colors pop against the header background.
-            */}
             <Logo className="h-10 lg:h-12 text-primary-foreground" />
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex lg:items-center lg:gap-8">
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-primary-foreground hover:text-primary-foreground/80 transition-colors">
-                Garage Doors
-                <ChevronDown className="h-4 w-4" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="w-56">
-                {navigation.doors.map((item) => (
-                  <DropdownMenuItem key={item.name} asChild>
-                    <Link href={item.href}>{item.name}</Link>
-                  </DropdownMenuItem>
-                ))}
-                <DropdownMenuItem asChild>
-                  <Link href="/garage-doors" className="font-medium text-primary">
-                    View All Garage Doors
-                  </Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium text-primary-foreground hover:text-primary-foreground/80 transition-colors">
-                Awnings
-                <ChevronDown className="h-4 w-4" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="w-56">
-                {navigation.awnings.map((item) => (
-                  <DropdownMenuItem key={item.name} asChild>
-                    <Link href={item.href}>{item.name}</Link>
-                  </DropdownMenuItem>
-                ))}
-                <DropdownMenuItem asChild>
-                  <Link href="/awnings" className="font-medium text-primary">
-                    View All Awnings
-                  </Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-
-            <Link
-              href="/blog"
-              className="text-sm font-medium text-primary-foreground hover:text-primary-foreground/80 transition-colors"
-            >
-              Blog
-            </Link>
+            {/* Products Dropdown - click to toggle */}
+            <div ref={dropdownRef} className="relative">
+              <button
+                type="button"
+                onClick={() => setProductsOpen(!productsOpen)}
+                className="flex items-center gap-1 text-sm font-medium text-primary-foreground hover:text-primary-foreground/80 transition-colors"
+              >
+                Products
+                <ChevronDown className={cn("h-4 w-4 transition-transform", productsOpen && "rotate-180")} />
+              </button>
+              {productsOpen && (
+                <div className="absolute left-0 top-full mt-2 w-56 rounded-lg bg-white shadow-xl border border-border py-2 animate-in fade-in slide-in-from-top-2 duration-200">
+                  {productsMenu.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="block px-4 py-2.5 text-sm text-foreground hover:bg-muted transition-colors"
+                      onClick={() => setProductsOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
 
             <Link
               href="/about"
               className="text-sm font-medium text-primary-foreground hover:text-primary-foreground/80 transition-colors"
             >
               About Us
+            </Link>
+
+            <Link
+              href="/blog"
+              className="text-sm font-medium text-primary-foreground hover:text-primary-foreground/80 transition-colors"
+            >
+              Blog
             </Link>
 
             <Link
@@ -123,7 +109,7 @@ export function Header() {
               <span className="group-hover:underline underline-offset-4">01234 567 890</span>
             </a>
             <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold shadow-sm">
-              <Link href="/quote">Get a Quote</Link>
+              <Link href="/quote">Free Brochure & Survey</Link>
             </Button>
           </div>
 
@@ -144,25 +130,9 @@ export function Header() {
             <div className="space-y-2">
               <div className="border-t border-primary-foreground/20 pt-4">
                 <p className="px-3 text-xs font-semibold text-primary-foreground/60 uppercase tracking-wider">
-                  Garage Doors
+                  Products
                 </p>
-                {navigation.doors.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="block px-3 py-3 text-base text-primary-foreground hover:bg-primary-foreground/10 rounded-md min-h-[44px]"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-
-              <div className="border-t border-primary-foreground/20 pt-4">
-                <p className="px-3 text-xs font-semibold text-primary-foreground/60 uppercase tracking-wider">
-                  Awnings
-                </p>
-                {navigation.awnings.map((item) => (
+                {productsMenu.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
@@ -176,18 +146,18 @@ export function Header() {
 
               <div className="border-t border-primary-foreground/20 pt-4 space-y-2">
                 <Link
-                  href="/blog"
-                  className="block px-3 py-3 text-base text-primary-foreground hover:bg-primary-foreground/10 rounded-md min-h-[44px]"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Blog
-                </Link>
-                <Link
                   href="/about"
                   className="block px-3 py-3 text-base text-primary-foreground hover:bg-primary-foreground/10 rounded-md min-h-[44px]"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   About Us
+                </Link>
+                <Link
+                  href="/blog"
+                  className="block px-3 py-3 text-base text-primary-foreground hover:bg-primary-foreground/10 rounded-md min-h-[44px]"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Blog
                 </Link>
                 <Link
                   href="/contact"
@@ -204,7 +174,7 @@ export function Header() {
                   className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold min-h-[44px]"
                 >
                   <Link href="/quote" onClick={() => setMobileMenuOpen(false)}>
-                    Get a Free Quote
+                    Free Brochure & Survey
                   </Link>
                 </Button>
               </div>

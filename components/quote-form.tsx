@@ -16,9 +16,6 @@ import { CheckCircle2, ArrowRight, ArrowLeft } from "lucide-react"
 const productOptions = {
   "garage-doors": [
     { value: "roller", label: "Roller Garage Doors" },
-    { value: "sectional", label: "Sectional Garage Doors" },
-    { value: "side-hinged", label: "Side-Hinged Garage Doors" },
-    { value: "up-and-over", label: "Up & Over Garage Doors" },
     { value: "not-sure", label: "Not sure - need advice" },
   ],
   awnings: [
@@ -34,6 +31,7 @@ export function QuoteForm() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [formData, setFormData] = useState({
+    requestType: "" as string, // "brochure" | "survey" | "both"
     productCategory: "",
     productType: "",
     propertyType: "",
@@ -95,6 +93,7 @@ export function QuoteForm() {
               setIsSubmitted(false)
               setStep(1)
               setFormData({
+                requestType: "",
                 productCategory: "",
                 productType: "",
                 propertyType: "",
@@ -147,6 +146,53 @@ export function QuoteForm() {
           {/* Step 1: Product Selection */}
           {step === 1 && (
             <div className="space-y-6">
+              {/* Request Type - Crocodile-style Brochure/Survey choice */}
+              <div>
+                <h3 className="text-lg font-semibold text-foreground mb-4">What would you like?</h3>
+                <RadioGroup
+                  value={formData.requestType}
+                  onValueChange={(value) => updateFormData("requestType", value)}
+                  className="grid gap-4 sm:grid-cols-3"
+                >
+                  <Label
+                    htmlFor="brochure"
+                    className={`flex items-center gap-4 rounded-lg border-2 p-4 cursor-pointer transition-colors ${
+                      formData.requestType === "brochure" ? "border-primary bg-primary/5" : "border-border"
+                    }`}
+                  >
+                    <RadioGroupItem value="brochure" id="brochure" />
+                    <div>
+                      <span className="font-medium">Free Brochure</span>
+                      <p className="text-sm text-muted-foreground">Sent to your email</p>
+                    </div>
+                  </Label>
+                  <Label
+                    htmlFor="survey"
+                    className={`flex items-center gap-4 rounded-lg border-2 p-4 cursor-pointer transition-colors ${
+                      formData.requestType === "survey" ? "border-primary bg-primary/5" : "border-border"
+                    }`}
+                  >
+                    <RadioGroupItem value="survey" id="survey" />
+                    <div>
+                      <span className="font-medium">Free Survey</span>
+                      <p className="text-sm text-muted-foreground">We visit your home</p>
+                    </div>
+                  </Label>
+                  <Label
+                    htmlFor="both"
+                    className={`flex items-center gap-4 rounded-lg border-2 p-4 cursor-pointer transition-colors ${
+                      formData.requestType === "both" ? "border-primary bg-primary/5" : "border-border"
+                    }`}
+                  >
+                    <RadioGroupItem value="both" id="both" />
+                    <div>
+                      <span className="font-medium">Both</span>
+                      <p className="text-sm text-muted-foreground">Brochure + Survey</p>
+                    </div>
+                  </Label>
+                </RadioGroup>
+              </div>
+
               <div>
                 <h3 className="text-lg font-semibold text-foreground mb-4">What are you interested in?</h3>
                 <RadioGroup
@@ -250,7 +296,7 @@ export function QuoteForm() {
                 <Button
                   type="button"
                   onClick={nextStep}
-                  disabled={!formData.productCategory}
+                  disabled={!formData.requestType || !formData.productCategory}
                   className="bg-primary hover:bg-primary/90 text-primary-foreground min-h-[48px]"
                 >
                   Continue

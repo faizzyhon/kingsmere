@@ -64,7 +64,7 @@ export function CTASection() {
               >
                 <Link href="/quote">
                   <span className="relative z-10 flex items-center">
-                    Get a Free Quote
+                    Free Brochure & Survey
                     <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-2" />
                   </span>
                   <div className="absolute inset-0 animate-shimmer opacity-40" />

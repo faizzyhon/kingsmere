@@ -7,10 +7,10 @@ import { PageHeader } from "@/components/page-header"
 import { QuoteForm } from "@/components/quote-form"
 
 export const metadata: Metadata = {
-  title: "Get a Free Quote | Kingsmere Home Improvements",
+  title: "Free Brochure & Survey | Kingsmere Home Improvements",
   description:
-    "Request your free, no-obligation quote for electric garage doors or awnings. Expert survey and competitive pricing from Kingsmere Home Improvements.",
-  keywords: "free quote, garage door quote, awning quote, home improvement quote UK",
+    "Request your free brochure or book a free, no-obligation home survey for electric roller garage doors or awnings from Kingsmere Home Improvements.",
+  keywords: "free brochure, free survey, garage door quote, awning quote, home improvement quote UK",
 }
 
 const benefits = [
@@ -42,9 +42,9 @@ export default function QuotePage() {
       <Header />
       <main>
         <PageHeader
-          title="Get a Free Quote"
-          description="Complete the form below and one of our team will be in touch to arrange your free survey. No obligation, no pressure - just honest advice and competitive pricing."
-          breadcrumbs={[{ name: "Get a Quote", href: "/quote" }]}
+          title="Free Brochure & Survey"
+          description="Request a free brochure or book a free, no-obligation home survey. Complete the form below and one of our team will be in touch. No pressure - just honest advice."
+          breadcrumbs={[{ name: "Free Brochure & Survey", href: "/quote" }]}
         />
 
         {/* Benefits Bar */}
