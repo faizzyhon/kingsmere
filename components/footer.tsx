@@ -4,9 +4,9 @@ import { Facebook, Instagram, Twitter, MapPin, Phone, Mail, Shield, Award, Clock
 const footerLinks = {
   products: [
     { name: "Roller Garage Doors", href: "/garage-doors/roller" },
-    { name: "Sectional Garage Doors", href: "/garage-doors/sectional" },
     { name: "Retractable Awnings", href: "/awnings/retractable" },
     { name: "Patio Awnings", href: "/awnings/patio" },
+    { name: "Commercial Awnings", href: "/awnings/commercial" },
   ],
   company: [
     { name: "About Us", href: "/about" },
@@ -39,7 +39,7 @@ export function Footer() {
                 <Shield className="h-5 w-5 text-secondary-foreground" />
               </div>
               <div>
-                <p className="text-sm font-semibold">10 Year Warranty</p>
+                <p className="text-sm font-semibold">5 Year Warranty</p>
                 <p className="text-xs text-primary-foreground/70">On all products</p>
               </div>
             </div>

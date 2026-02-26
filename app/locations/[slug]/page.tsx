@@ -208,9 +208,9 @@ export default async function LocationPage({ params }: LocationPageProps) {
             <Card>
               <CardContent className="p-6">
                 <CheckCircle2 className="mb-3 h-8 w-8 text-secondary" />
-                <h3 className="mb-2 text-lg font-bold">10-Year Warranty</h3>
+                <h3 className="mb-2 text-lg font-bold">5-Year Warranty</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Every installation comes with our comprehensive 10-year warranty for complete peace of mind.
+                  Every installation comes with our comprehensive 5-year warranty for complete peace of mind.
                 </p>
               </CardContent>
             </Card>

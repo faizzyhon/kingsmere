@@ -136,7 +136,7 @@ export default function ContactPage() {
                 {
                   question: "What warranty do you offer?",
                   answer:
-                    "All our garage doors come with a 10-year warranty. Awnings include a 5-year warranty. Both cover parts and labour.",
+                    "All our products come with a comprehensive 5-year warranty covering parts and labour.",
                 },
               ].map((faq) => (
                 <Card key={faq.question} className="border-0 shadow-md">

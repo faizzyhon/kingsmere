@@ -16,9 +16,6 @@ const products = [
     image: "/modern-electric-roller-garage-door-on-luxury-home.jpg",
     items: [
       { name: "Roller Doors", href: "/garage-doors/roller" },
-      { name: "Sectional Doors", href: "/garage-doors/sectional" },
-      { name: "Side-Hinged", href: "/garage-doors/side-hinged" },
-      { name: "Up & Over", href: "/garage-doors/up-and-over" },
     ],
   },
   {

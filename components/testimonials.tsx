@@ -12,7 +12,7 @@ const testimonials = [
     location: "London",
     rating: 5,
     text: "Absolutely fantastic service from start to finish. The team were professional, tidy, and the garage door looks stunning. Would highly recommend Kingsmere to anyone.",
-    product: "Sectional Garage Door",
+    product: "Roller Garage Door",
   },
   {
     name: "David Williams",
@@ -33,7 +33,7 @@ const testimonials = [
     location: "Bristol",
     rating: 5,
     text: "Incredible attention to detail. The team went above and beyond to ensure everything was perfect. Our new garage door has completely transformed the front of our house.",
-    product: "Up & Over Door",
+    product: "Roller Garage Door",
   },
   {
     name: "Jennifer Adams",

@@ -14,9 +14,9 @@ const features = [
   },
   {
     icon: Shield,
-    title: "10 Year Warranty",
+    title: "5 Year Warranty",
     description: "Every installation comes with our comprehensive warranty for complete peace of mind.",
-    stat: { value: 10, suffix: "", label: "Year Warranty" },
+    stat: { value: 5, suffix: "", label: "Year Warranty" },
   },
   {
     icon: Award,

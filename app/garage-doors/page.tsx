@@ -10,7 +10,7 @@ import { garageDoors } from "@/lib/products-data"
 export const metadata: Metadata = {
   title: "Electric Garage Doors | Kingsmere Home Improvements",
   description:
-    "Premium electric garage doors for UK homes. Roller, sectional, side-hinged and up & over doors with expert installation and 10-year warranty. Get a free quote today.",
+    "Premium electric roller garage doors for UK homes. Expert installation and 5-year warranty. Get a free quote today.",
   keywords: "electric garage doors, roller doors, sectional doors, garage door installation, UK",
 }
 
@@ -21,7 +21,7 @@ export default function GarageDoorsPage() {
       <main>
         <PageHeader
           title="Electric Garage Doors"
-          description="Discover our premium range of electric garage doors. From space-saving roller doors to traditional side-hinged options, we have the perfect solution for your home."
+          description="Discover our premium range of electric roller garage doors. Space-saving, secure, and whisper-quiet. The perfect solution for your home."
           breadcrumbs={[{ name: "Garage Doors", href: "/garage-doors" }]}
         />
 
